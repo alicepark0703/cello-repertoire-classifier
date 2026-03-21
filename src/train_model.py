@@ -2,6 +2,7 @@ from pathlib import Path
 import random
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from sklearn.model_selection import GroupShuffleSplit
 from sklearn.preprocessing import StandardScaler, LabelEncoder
@@ -294,8 +295,47 @@ def main():
 
 
     #confusion matrix
+    cm = confusion_matrix(y_true, y_pred)
     print("[CONFUSION MATRIX]")
-    print(confusion_matrix(y_true, y_pred))
+    print(cm)
+
+    asset_dir = Path("assets")
+    asset_dir.mkdir(exist_ok = True)
+
+    class_names = list(label_encoder.classes_)
+
+    fig, ax = plt.subplots(figsize=(6,5))
+    im = ax.imshow(cm)
+
+    ax.set_xticks(np.arange(len(class_names)))
+    ax.set_yticks(np.arange(len(class_names)))
+    ax.set_xticklabels(class_names)
+    ax.set_yticklabels(class_names)
+
+    ax.set_xlabel("Predicted label")
+    ax.set_ylabel("True label")
+    ax.set_title("Confusion Matrix")
+
+    plt.setp(ax.get_xticklabels(), rotation=20, ha="right", rotation_mode="anchor")
+
+    threshold = cm.max() / 2.0
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(
+                j,
+                i,
+                str(cm[i, j]),
+                ha="center",
+                va="center",
+                color="white" if cm[i, j] > threshold else "black"
+            )
+
+    fig.colorbar(im, ax=ax)
+    fig.tight_layout()
+    plt.savefig(asset_dir / "confusion_matrix.png", dpi=300, bbox_inches="tight")
+    plt.close()
+
+    print("confusion matrix has been saved to assets/confusion_matrx.png")
 
     #saving model
     save_obj = {

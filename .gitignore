@@ -7,3 +7,7 @@ __pycache__/
 data/clips/
 data/raw/
 data/wav/
+
+!data/features_sample.csv
+!data/sample_clips/
+!data/sample_clips/**
