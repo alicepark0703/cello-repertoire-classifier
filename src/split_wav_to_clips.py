@@ -7,7 +7,7 @@ import soundfile as sf
 WAV_DIR = Path("data/wav")
 CLIPS_DIR = Path("data/clips")
 
-LABELS = ["baroque", "classical", "romantic"]
+LABELS = ["bach", "beethoven", "schumann"]
 
 CLIP_TIME = 10 # seconds
 HOP_TIME = 10 #seconds

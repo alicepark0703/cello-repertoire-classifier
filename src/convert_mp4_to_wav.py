@@ -7,7 +7,7 @@ RAW_DIR = Path("data/raw")
 WAV_DIR = Path("data/wav")
 
 #classes i.e. labels
-LABELS = ["baroque", "classical", "romantic"]
+LABELS = ["bach", "beethoven", "schumann"]
 DEFAULT_SR = 22050
 EX_PATH = r"C:\Users\alice\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.1-full_build\bin\ffmpeg.exe"
 
