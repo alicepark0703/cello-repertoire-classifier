@@ -138,26 +138,21 @@ Even so, the project demonstrates a coherent audio ML workflow and well-crafted 
 ```text
 .
 ├── data/
-│   ├── raw/              # raw source recordings (not included)
-│   ├── wav/              # converted wav files (not included)
-│   ├── clips/            # generated clips (not included)
 │   ├── sample_clips/     # small demo subset 
 │   ├── features.csv      # extracted features
 │
+├── models/
+│   └── model_mlp.pth
+├── notebooks/
+|   └── music_classification_analysis.ipynb
 ├── src/
 │   ├── convert_audio.py
 │   ├── make_clips.py
 │   ├── extract_features.py
 │   └── train_model.py
 │
-├── models/
-│   └── model_mlp.pth
-│
-├── assets/
-│   ├── confusion_matrix.png
-│
-├── requirements.txt
 ├── .gitignore
+├── environment.yml
 └── README.md
 ```
 ## Limitations
